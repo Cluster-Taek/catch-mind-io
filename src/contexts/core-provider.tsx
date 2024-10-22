@@ -1,3 +1,4 @@
+import AuthProvider from './auth-provider';
 import SessionProvider from '@/contexts/session-provider';
 
 interface ICoreProviderProps {
@@ -5,7 +6,11 @@ interface ICoreProviderProps {
 }
 
 const CoreProvider = ({ children }: ICoreProviderProps) => {
-  return <SessionProvider>{children}</SessionProvider>;
+  return (
+    <SessionProvider>
+      <AuthProvider>{children}</AuthProvider>
+    </SessionProvider>
+  );
 };
 
 export default CoreProvider;
